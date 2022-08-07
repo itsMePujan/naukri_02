@@ -2,9 +2,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:naukri_02/constant/constant.dart';
+import 'package:provider/provider.dart';
 
-BottomNavigationBar bottomNavigation() {
+import '../../providers/navigation_provider.dart';
+
+BottomNavigationBar bottomNavigation(BuildContext context) {
+  NavigationProvider np = Provider.of<NavigationProvider>(context);
   return BottomNavigationBar(
+    currentIndex: np.Currentindex,
+    onTap: np.ontap,
     items: [
       BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
       BottomNavigationBarItem(
